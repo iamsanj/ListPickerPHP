@@ -73,7 +73,7 @@ else if(isset($_GET['list_name']) && $_GET['list_name'] != '' && isset($_GET['us
 	$query = "UPDATE listpicker_item SET claimed_by = '' WHERE claimed_by = '$user' AND list_id = '$list_id'";
 	$result = mysql_query($query) or die('Error, query failed. ' . mysql_error() . $query);
 	
-	$query = "UPDATE listpicker_item SET claimed_by = '$user' WHERE item_name = '$item_name' AND list_id = '$list_id'";
+	$query = "UPDATE listpicker_item SET claimed_by = '$user' WHERE item_name = '$item_name' AND claimed_by = '' AND list_id = '$list_id'";
 	$result = mysql_query($query) or die('Error, query failed. ' . mysql_error() . $query);
 	header('Location: http://mywebsite.com/listpicker/index.php?list_name='.urlencode($list_name).'&user='.urlencode($user));
 }
